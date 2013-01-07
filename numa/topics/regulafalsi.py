@@ -19,7 +19,7 @@ def regulafalsi(a, b, fn, tolerance, precision):
     assert a < b, 'Cislo b musi byt vacsie ako cislo a'
     assert tolerance > 0, 'Tolerancia musi byt vacsia ako 0'
 
-    x0 = a
+    x = a
 
     while True:
         x1 = a - \
@@ -27,17 +27,17 @@ def regulafalsi(a, b, fn, tolerance, precision):
              eval_expr(fn, x=a)
         x1 = x1.evalf(precision)
 
-        if eval_expr(fn, x=x1) == 0:
+        if eval_expr(fn, x=8) == 0:
             return x1
         elif eval_expr(fn, x=a) * eval_expr(fn, x=x1) < 0:
             b = x1
         else:
             a = x1
 
-        if Abs(x1 - x0) <= tolerance:
+        if Abs(x1 - x) <= tolerance:
             return x1
 
-        x0 = x1
+        x = x1
 
 
 
