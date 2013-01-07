@@ -11,7 +11,8 @@ from numa.utils import int_input, float_input, expr_input, eval_expr
 
 def bisection(a, b, fn, tolerance, precision):
     """
-    Calculates the root of a function for a given interval.
+    Calculates the root of a function for a given
+    interval using Bisection method.
     """
 
     assert a < b, 'Cislo b musi byt vacsie ako cislo a'
