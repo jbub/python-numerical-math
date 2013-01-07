@@ -3,7 +3,7 @@
 """
 numa
 
-:copyright: (c) 2012 by Juraj Bubniak.
+:copyright: (c) 2013 by Juraj Bubniak.
 :license: BSD, see LICENSE for more details.
 
 """
@@ -11,4 +11,4 @@ numa
 __title__ = 'numa'
 __author__ = 'Juraj Bubniak'
 __license__ = 'BSD'
-__copyright__ = 'Copyright 2012 Juraj Bubniak'
+__copyright__ = 'Copyright 2013 Juraj Bubniak'

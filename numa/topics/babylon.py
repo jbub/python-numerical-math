@@ -5,20 +5,23 @@ Babylonian method.
 """
 
 from sympy import Rational
-from utils import float_input, int_input
+from sympy.functions import Abs
+
+from numa.utils import float_input, int_input
 
 
 def iterative_sqrt(n, old_approx, tolerance, precision):
     """
     Calculates a square root of number.
     """
+
     assert old_approx > 0, 'Aproximacia musi byt vacsia ako nula.'
 
     while True:
         new_approx = Rational(1, 2) * (old_approx + n / old_approx)
         new_approx = new_approx.evalf(precision)
 
-        if abs(new_approx - old_approx) < tolerance:
+        if Abs(new_approx - old_approx) < tolerance:
             return new_approx
 
         old_approx = new_approx
