@@ -1,0 +1,19 @@
+# os
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ide
+.idea
+
+# python
+*.py[dco]
+*.pot
+*.egg
+*.egg-info
+
+# log
+*.log
+
+# other scm
+.svn
