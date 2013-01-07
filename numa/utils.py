@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from sympy import sympify, Basic
+from sympy import sympify, Basic, Float, Integer
 from sympy.core.sympify import SympifyError
 
 
@@ -21,7 +21,7 @@ def float_input(prompt, positive=True, default=None):
             pass
         else:
             if (positive and input > 0.0) or not positive:
-                return input
+                return Float(input)
 
 
 def int_input(prompt, positive=True, default=None):
@@ -32,7 +32,7 @@ def int_input(prompt, positive=True, default=None):
             pass
         else:
             if (positive and input > 0) or not positive:
-                return input
+                return Integer(input)
 
 
 def expr_input(prompt):
