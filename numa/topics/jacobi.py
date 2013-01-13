@@ -33,7 +33,7 @@ def jacobi(a, b, x, accuracy):
             for j in range(i + 1, a.rows):
                 sum_b += a[i, j] * x[j]
 
-            x_list[i] = 1.0 / a[i][i] * (b[i] - sum_a - sum_b)
+            x_list[i] = 1.0 / a[i, i] * (b[i] - sum_a - sum_b)
 
         temp = zip(x_list, x.tolist())
         error = max([abs(item[0] - item[1]) for item in temp])
