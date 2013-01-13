@@ -2,12 +2,12 @@
 
 ## Topics
 
-### Babylonska metoda
-### Bisekcia
-### Regula falsi
-### Newtonova metoda
-### Jacobiho metoda
-### Gauss Seidelova metoda
+### Babylonian method
+### Bisection method
+### Regula falsi method
+### Newton method
+### Jacobi method
+### Gauss Seidel method
 ### Interpolacny polynom (Lagrangeov)
 ### Metoda najmensich stvorcov
 ### Numericka integracia - obdlznikova metoda
