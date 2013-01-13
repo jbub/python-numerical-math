@@ -4,37 +4,34 @@
 Regula falsi method.
 """
 
-from sympy import Rational
 from sympy.functions import Abs
 
 from numa.utils import int_input, float_input, expr_input, eval_expr
 
 
-def regulafalsi(a, b, fn, tolerance, precision):
+def regulafalsi(a, b, fn, accuracy, digits):
     """
     Calculates the root of a function for a given
     interval using Regula falsi method.
     """
 
     assert a < b, 'Cislo b musi byt vacsie ako cislo a'
-    assert tolerance > 0, 'Tolerancia musi byt vacsia ako 0'
 
     x = a
+    f = lambda x: eval_expr(fn, x=x)
 
     while True:
-        x1 = a - \
-             Rational(b - a, eval_expr(fn, x=b) - eval_expr(fn, x=a)) * \
-             eval_expr(fn, x=a)
-        x1 = x1.evalf(precision)
+        x1 = a - ((b - a) / (f(b) - f(a)) * f(a))
+        x1 = x1.evalf(digits)
 
-        if eval_expr(fn, x=8) == 0:
+        if f(x1) == 0:
             return x1
-        elif eval_expr(fn, x=a) * eval_expr(fn, x=x1) < 0:
+        elif f(a) * f(x1) < 0:
             b = x1
         else:
             a = x1
 
-        if Abs(x1 - x) <= tolerance:
+        if Abs(x1 - x) <= accuracy:
             return x1
 
         x = x1
@@ -45,7 +42,7 @@ if __name__ == '__main__':
     a = float_input('Zadajte cislo a')
     b = float_input('Zadajte cislo b')
     fn = expr_input('Zadajte funkciu')
-    tolerance = float_input('Zadajte toleranciu', default=0.01)
-    precision = int_input('Zadajte presnost', default=5)
+    accuracy = float_input('Zadajte presnost', default=0.01)
+    digits = int_input('Zadajte pocet desatinnych miest', default=5)
 
-    print regulafalsi(a, b, fn, tolerance, precision)
+    print regulafalsi(a, b, fn, accuracy, digits)
