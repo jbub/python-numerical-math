@@ -4,13 +4,12 @@
 Babylonian method.
 """
 
-from sympy import Rational
-from sympy.functions import Abs
+from sympy import Rational, Abs
 
 from numa.utils import float_input, int_input
 
 
-def babylon(n, old_approx, accuracy, digits):
+def babylon(n, old_approx, accuracy):
     """
     Calculates a square root of number using Babylonian method.
     """
@@ -19,7 +18,6 @@ def babylon(n, old_approx, accuracy, digits):
 
     while True:
         new_approx = Rational(1, 2) * (old_approx + n / old_approx)
-        new_approx = new_approx.evalf(digits)
 
         if Abs(new_approx - old_approx) < accuracy:
             return new_approx
@@ -28,10 +26,8 @@ def babylon(n, old_approx, accuracy, digits):
 
 
 if __name__ == '__main__':
-
-    number = int_input('Zadajte cislo')
+    n = int_input('Zadajte cislo')
     approx = float_input('Zadajte aproximaciu')
     accuracy = float_input('Zadajte presnost', default=0.01)
-    digits = int_input('Zadajte pocet desatinnych miest', default=5)
 
-    print babylon(number, approx, accuracy, digits)
+    print babylon(n, approx, accuracy)

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from sympy import sympify, Basic, Float, Integer
+from sympy import sympify, Basic, Float, Integer, Matrix
 from sympy.core.sympify import SympifyError
 
 
@@ -40,6 +40,21 @@ def expr_input(prompt):
         try:
             input = sympify(user_input(prompt, default=None))
         except SympifyError:
+            pass
+        else:
+            return input
+
+
+def matrix_input(prompt):
+    while True:
+        try:
+            input = user_input(prompt, default=None)
+            input = eval(input)
+            if isinstance(input, list):
+                input = Matrix(input)
+            else:
+                raise ValueError
+        except StandardError:
             pass
         else:
             return input
