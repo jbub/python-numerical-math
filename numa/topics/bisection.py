@@ -33,6 +33,7 @@ def bisection(a, b, fn, tolerance, precision):
         if b - a <= tolerance:
             return x
 
+
 if __name__ == '__main__':
 
     a = float_input('Zadajte cislo a')

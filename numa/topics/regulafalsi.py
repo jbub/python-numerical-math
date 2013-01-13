@@ -40,7 +40,6 @@ def regulafalsi(a, b, fn, tolerance, precision):
         x = x1
 
 
-
 if __name__ == '__main__':
 
     a = float_input('Zadajte cislo a')

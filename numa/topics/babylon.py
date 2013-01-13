@@ -10,9 +10,9 @@ from sympy.functions import Abs
 from numa.utils import float_input, int_input
 
 
-def iterative_sqrt(n, old_approx, tolerance, precision):
+def babylon(n, old_approx, tolerance, precision):
     """
-    Calculates a square root of number.
+    Calculates a square root of number using Babylonian method.
     """
 
     assert old_approx > 0, 'Aproximacia musi byt vacsia ako nula.'
@@ -26,6 +26,7 @@ def iterative_sqrt(n, old_approx, tolerance, precision):
 
         old_approx = new_approx
 
+
 if __name__ == '__main__':
 
     number = int_input('Zadajte cislo')
@@ -33,4 +34,4 @@ if __name__ == '__main__':
     tolerance = float_input('Zadajte toleranciu', default=0.01)
     precision = int_input('Zadajte presnost', default=5)
 
-    print iterative_sqrt(number, approx, tolerance, precision)
+    print babylon(number, approx, tolerance, precision)
