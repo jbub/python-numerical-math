@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Metoda Regula falsi.
+Metoda Regula falsi (metoda secnic).
 """
 
 from sympy import Abs
@@ -21,8 +21,9 @@ def regulafalsi(a, b, fn, e):
     x = a
 
     while True:
-        x1 = a - ((b - a) / (f(b) - f(a)) * f(a))
+        x1 = a - ((b - a) / (f(b) - f(a))) * f(a)
 
+        # skonci ak je nova aproximacia korenom funkcie
         if f(x1) == 0:
             return x1
         elif f(a) * f(x1) < 0:
@@ -30,6 +31,7 @@ def regulafalsi(a, b, fn, e):
         else:
             a = x1
 
+        # skonci pri dosiahnuti presnosti
         if Abs(x1 - x) <= e:
             return x1
 
