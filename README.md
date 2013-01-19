@@ -2,16 +2,16 @@
 
 ## Topics
 
-### Babylonian method
-### Bisection method
-### Regula falsi method
-### Newton method
-### Jacobi method
-### Gauss Seidel method
-### Lagrange polynomial
-### Least squares method
-### Numerical integration - Rectangular method
-### Numerical integration - Trapezoidal method
+* Babylonian method
+* Bisection method
+* Regula falsi method
+* Newton method
+* Jacobi method
+* Gauss Seidel method
+* Lagrange polynomial
+* Least squares method
+* Numerical integration - Rectangular method
+* Numerical integration - Trapezoidal method
 
 ## How to
 
