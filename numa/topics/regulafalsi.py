@@ -1,24 +1,24 @@
 # -*- coding: utf-8 -*-
 
 """
-Regula falsi method.
+Metoda Regula falsi.
 """
 
 from sympy import Abs
-
 from numa.utils import float_input, expr_input, eval_expr
 
 
-def regulafalsi(a, b, fn, accuracy):
+def regulafalsi(a, b, fn, e):
     """
-    Calculates the root of a function for a given
-    interval using Regula falsi method.
+    S vyuzitim metody Regula falsi vypocita koren funkcie fn
+    na intervale <a,b>.
     """
 
     assert a < b, 'Cislo b musi byt vacsie ako cislo a'
+    assert e > 0, 'Presnost e musi byt vacsia ako nula'
 
-    x = a
     f = lambda x: eval_expr(fn, x=x)
+    x = a
 
     while True:
         x1 = a - ((b - a) / (f(b) - f(a)) * f(a))
@@ -30,7 +30,7 @@ def regulafalsi(a, b, fn, accuracy):
         else:
             a = x1
 
-        if Abs(x1 - x) <= accuracy:
+        if Abs(x1 - x) <= e:
             return x1
 
         x = x1
@@ -39,7 +39,7 @@ def regulafalsi(a, b, fn, accuracy):
 if __name__ == '__main__':
     a = float_input('Zadajte cislo a')
     b = float_input('Zadajte cislo b')
-    fn = expr_input('Zadajte funkciu')
-    accuracy = float_input('Zadajte presnost', default=0.01)
+    fn = expr_input('Zadajte funkciu fn')
+    e = float_input('Zadajte presnost e', default=0.01)
 
-    print regulafalsi(a, b, fn, accuracy)
+    print regulafalsi(a, b, fn, e)
