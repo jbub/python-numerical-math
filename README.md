@@ -1,4 +1,4 @@
-# Numerical Math
+# Numerical math
 
 ## Topics
 
@@ -8,10 +8,10 @@
 ### Newton method
 ### Jacobi method
 ### Gauss Seidel method
-### Interpolacny polynom (Lagrangeov)
-### Metoda najmensich stvorcov
-### Numericka integracia - obdlznikova metoda
-### Numericka integracia - lichobeznikova metoda
+### Lagrange polynomial
+### Least squares method
+### Numerical integration - Rectangular method
+### Numerical integration - Trapezoidal method
 
 ## How to
 

@@ -1,33 +1,36 @@
 # -*- coding: utf-8 -*-
 
 """
-Babylonian method.
+Babylonska metoda.
 """
 
-from sympy import Rational, Abs
-
+from sympy import Abs
 from numa.utils import float_input, int_input
 
 
-def babylon(n, old_approx, accuracy):
+def babylon(n, x0, e):
     """
-    Calculates a square root of number using Babylonian method.
+    S vyuzitim Babylonskej metody vypocita odmocninu cisla n.
     """
 
-    assert old_approx > 0, 'Aproximacia musi byt vacsia ako nula'
+    assert n > 0, 'Cislo n musi byt vacsie ako nula'
+    assert x0 > 0, 'Pociatocna hodnota x0 musi byt vacsia ako nula'
+    assert e > 0, 'Presnost e musi byt vacsia ako nula'
 
     while True:
-        new_approx = Rational(1, 2) * (old_approx + n / old_approx)
+        # nova aproximacia je priemerom hodnot x0 a n / x0
+        x = 0.5 * (x0 + n / x0)
 
-        if Abs(new_approx - old_approx) < accuracy:
-            return new_approx
+        # skonci ak je dosiahnuta pozadovana presnost
+        if Abs(x - x0) < e:
+            return x
 
-        old_approx = new_approx
+        x0 = x
 
 
 if __name__ == '__main__':
-    n = int_input('Zadajte cislo')
-    approx = float_input('Zadajte aproximaciu')
-    accuracy = float_input('Zadajte presnost', default=0.01)
+    n = int_input('Zadajte cislo n')
+    x0 = float_input('Zadajte pociatocnu hodnotu x0')
+    e = float_input('Zadajte presnost e', default=0.01)
 
-    print babylon(n, approx, accuracy)
+    print babylon(n, x0, e)

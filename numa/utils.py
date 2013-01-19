@@ -13,26 +13,24 @@ def user_input(prompt, default=None):
     return default if default else input
 
 
-def float_input(prompt, positive=True, default=None):
+def float_input(prompt, default=None):
     while True:
         try:
             input = float(user_input(prompt, default))
         except ValueError:
             pass
         else:
-            if (positive and input > 0.0) or not positive:
-                return Float(input)
+            return Float(input)
 
 
-def int_input(prompt, positive=True, default=None):
+def int_input(prompt, default=None):
     while True:
         try:
             input = int(user_input(prompt, default))
         except ValueError:
             pass
         else:
-            if (positive and input > 0) or not positive:
-                return Integer(input)
+            return Integer(input)
 
 
 def expr_input(prompt):
