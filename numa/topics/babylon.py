@@ -5,7 +5,7 @@ Babylonska metoda.
 """
 
 from sympy import Abs
-from numa.utils import float_input, int_input
+from numa import logger, float_input, int_input
 
 
 def babylon(n, x0, e):
@@ -21,6 +21,9 @@ def babylon(n, x0, e):
         # nova aproximacia je priemerom hodnot x0 a n / x0
         x = 0.5 * (x0 + n / x0)
 
+        logger.info(
+            'x = {}, x0 = {}, Abs(x - x0) = {}'.format(x, x0, Abs(x - x0)))
+
         # skonci ak je dosiahnuta pozadovana presnost
         if Abs(x - x0) < e:
             return x
@@ -33,4 +36,6 @@ if __name__ == '__main__':
     x0 = float_input('Zadajte pociatocnu hodnotu x0')
     e = float_input('Zadajte presnost e', default=0.01)
 
-    print babylon(n, x0, e)
+    r = babylon(n, x0, e)
+
+    print('Odmocnina je: {}'.format(r))

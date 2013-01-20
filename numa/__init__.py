@@ -12,3 +12,13 @@ __title__ = 'numa'
 __author__ = 'Juraj Bubniak'
 __license__ = 'BSD'
 __copyright__ = 'Copyright 2013 Juraj Bubniak'
+
+
+from .utils import int_input, float_input, expr_input, matrix_input, eval_expr
+
+import sys
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+logger.addHandler(logging.StreamHandler(sys.stdout))
