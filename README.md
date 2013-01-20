@@ -23,22 +23,24 @@ First insert the numa package to your PYTHONPATH. This is example on how to run 
 
 ### Matrices and Vectors
 
-    # input matrices as lists
-    [[11,2,1],[1,10,2],[2,3,-8]]
+```python
+# input matrices as lists
+[[11,2,1],[1,10,2],[2,3,-8]]
 
-    # it will generate this Matrix instance
-    Matrix((
-        [11,2,1],
-        [1,10,2],
-        [2,3,-8]
-    ))
+# it will generate this Matrix instance
+Matrix((
+    [11,2,1],
+    [1,10,2],
+    [2,3,-8]
+))
 
-    # input vectors as one col matrices
-    [[15],[16],[1]]
+# input vectors as one col matrices
+[[15],[16],[1]]
 
-    # it will generate this Matrix instance
-    Matrix([
-        [15],
-        [16],
-        [1],
-    ])
+# it will generate this Matrix instance
+Matrix([
+    [15],
+    [16],
+    [1],
+])
+```
