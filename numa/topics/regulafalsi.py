@@ -5,7 +5,7 @@ Metoda Regula falsi (metoda secnic).
 """
 
 from sympy import Abs
-from numa.utils import float_input, expr_input, eval_expr
+from numa import logger, float_input, expr_input, eval_expr
 
 
 def regulafalsi(a, b, fn, e):
@@ -22,6 +22,8 @@ def regulafalsi(a, b, fn, e):
 
     while True:
         x1 = a - ((b - a) / (f(b) - f(a))) * f(a)
+
+        logger.info('a = {}, b = {}, x = {}, x1 = {}'.format(a, b, x, x1))
 
         # skonci ak je nova aproximacia korenom funkcie
         if f(x1) == 0:
@@ -44,4 +46,6 @@ if __name__ == '__main__':
     fn = expr_input('Zadajte funkciu fn')
     e = float_input('Zadajte presnost e', default=0.01)
 
-    print regulafalsi(a, b, fn, e)
+    r = regulafalsi(a, b, fn, e)
+
+    print('Koren je: {}'.format(r))

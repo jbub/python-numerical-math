@@ -15,6 +15,12 @@
 
 ## How to
 
+### Running
+
+Numa package must be in your PYTHONPATH. This is example on how to run the babylon.py script.
+
+    cd numa/topics && python babylon.py
+
 ### Matrices
 
     # matrix 3x3
