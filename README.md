@@ -17,7 +17,7 @@
 
 ### Running
 
-Numa package must be in your PYTHONPATH. This is example on how to run the babylon.py script.
+First insert the numa package to your PYTHONPATH. This is example on how to run the babylon.py script.
 
     cd numa/topics && python babylon.py
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from sympy import sympify, Basic, Float, Integer, Matrix
+from sympy import sympify, Float, Integer, Matrix
 from sympy.core.sympify import SympifyError
 
 
@@ -59,5 +59,4 @@ def matrix_input(prompt):
 
 
 def eval_expr(expr, **kwargs):
-    assert isinstance(expr, Basic)
     return expr.subs(kwargs).evalf()
