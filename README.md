@@ -21,9 +21,24 @@ First insert the numa package to your PYTHONPATH. This is example on how to run 
 
     cd numa/topics && python babylon.py
 
-### Matrices
+### Matrices and Vectors
 
-    # matrix 3x3
-    [[1,2,3],[2,3,4],[4,6,2]]
-    # matrix 1x3
-    [[1],[3],[5]]
+    # input matrices as lists
+    [[11,2,1],[1,10,2],[2,3,-8]]
+
+    # it will generate this Matrix instance
+    Matrix((
+        [11,2,1],
+        [1,10,2],
+        [2,3,-8]
+    ))
+
+    # input vectors as one col matrices
+    [[15],[16],[1]]
+
+    # it will generate this Matrix instance
+    Matrix([
+        [15],
+        [16],
+        [1],
+    ])

@@ -21,6 +21,7 @@ def regulafalsi(a, b, fn, e):
     x = a
 
     while True:
+        # vypocet novej aproximacie
         x1 = a - ((b - a) / (f(b) - f(a))) * f(a)
 
         logger.info('a = {}, b = {}, x = {}, x1 = {}'.format(a, b, x, x1))

@@ -23,7 +23,8 @@ def bisection(a, b, fn, e):
 
         logger.info('a = {}, b = {}, x = {}'.format(a, b, x))
 
-        # skonci ak je stred intervalu korenom funkcie inak zmensi interval
+        # skonci ak je stred intervalu
+        # korenom funkcie inak uprav interval
         if f(x) == 0:
             return x
         elif f(a) * f(x) < 0:
