@@ -4,7 +4,7 @@
 Metoda bisekcie (polenie intervalu).
 """
 
-from numa.utils import float_input, expr_input, eval_expr
+from numa import logger, float_input, expr_input, eval_expr
 
 
 def bisection(a, b, fn, e):
@@ -21,7 +21,9 @@ def bisection(a, b, fn, e):
         # stred intervalu <a,b>
         x = 0.5 * (a + b)
 
-        # skonci ak je stred intervalu korenom funkcie
+        logger.info('a = {}, b = {}, x = {}'.format(a, b, x))
+
+        # skonci ak je stred intervalu korenom funkcie inak zmensi interval
         if f(x) == 0:
             return x
         elif f(a) * f(x) < 0:
@@ -40,4 +42,6 @@ if __name__ == '__main__':
     fn = expr_input('Zadajte funkciu fn')
     e = float_input('Zadajte presnost e', default=0.01)
 
-    print bisection(a, b, fn, e)
+    r = bisection(a, b, fn, e)
+
+    print('Koren je: {}'.format(r))
