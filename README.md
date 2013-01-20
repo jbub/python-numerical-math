@@ -7,7 +7,7 @@
 * Regula falsi method **regulafalsi.py**
 * Newton method **newton.py**
 * Jacobi method **jacobi.py**
-* Gauss Seidel method
+* Gauss Seidel method **gaussseidel.py**
 * Lagrange polynomial
 * Least squares method
 * Numerical integration - Rectangular method **rectangle.py**
