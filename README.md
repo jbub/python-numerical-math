@@ -23,11 +23,13 @@ First insert the numa package to your PYTHONPATH. This is example on how to run 
 
 ### Functions
 
-Python        | Sympy expression
-------------- | ----------------
-math.e**x     | e**x = ex
-math.sin(x)   | sin(x)
-math.cos(x)   | cos(x)
+Python         | Sympy expression
+-------------- | ----------------
+math.log(x)    | ln(x)
+math.log10(10) | log(x)
+math.exp(x)    | exp(x)
+math.sin(x)    | sin(x)
+math.cos(x)    | cos(x)
 
 ### Matrices and Vectors
 
