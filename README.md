@@ -21,6 +21,14 @@ First insert the numa package to your PYTHONPATH. This is example on how to run 
 
     cd numa/topics && python babylon.py
 
+### Functions
+
+Python        | Sympy expression
+------------- | ----------------
+math.e**x     | e**x = ex
+math.sin(x)   | sin(x)
+math.cos(x)   | cos(x)
+
 ### Matrices and Vectors
 
 ```python
@@ -38,9 +46,9 @@ Matrix((
 [[15],[16],[1]]
 
 # it will generate this Matrix instance
-Matrix([
+Matrix((
     [15],
     [16],
     [1],
-])
+))
 ```

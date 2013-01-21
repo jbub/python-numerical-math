@@ -5,7 +5,7 @@ Numericka Integracia - Obdlznikova metoda.
 """
 
 from sympy import Abs
-from numa.utils import float_input, int_input, expr_input, eval_expr
+from numa import logger, float_input, int_input, expr_input, eval_expr
 
 
 def rectangle(a, b, m, fn, e):
@@ -18,10 +18,12 @@ def rectangle(a, b, m, fn, e):
     assert e > 0, 'Presnost e musi byt vacsia ako nula'
 
     f = lambda x: eval_expr(fn, x=x)
-    h = (b - a) / m
     I = []
     J = 0
     k = 0
+
+    # rozdelenie intervalu na m rovnako dlhych dielov
+    h = (b - a) / m
 
     for i in range(1, m):
         J += f(((a + (i * h)) + (a + h * (i + 1))) / 2)
@@ -30,6 +32,8 @@ def rectangle(a, b, m, fn, e):
 
     while True:
         J = 0
+
+        # skratenie intervalu na polovicu
         h /= 2
 
         for i in range(1, m):
@@ -37,6 +41,10 @@ def rectangle(a, b, m, fn, e):
 
         I.append(h * J)
 
+        logger.info(
+            'h = {0}, I[k] = {1}, I[k] - I[k + 1] = {2}'.format(h, I[k], I[k] - I[k + 1]))
+
+        # skonci pri dosiahnuti presnosti
         if Abs(I[k] - I[k + 1]) <= e:
             return I[k]
 
