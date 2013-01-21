@@ -26,7 +26,7 @@ First insert the numa package to your PYTHONPATH. This is example on how to run 
 Python         | Sympy expression
 -------------- | ----------------
 math.log(x)    | log(x)
-math.log10(10) | log10(x)
+math.log10(x)  | log10(x)
 math.exp(x)    | exp(x)
 math.sin(x)    | sin(x)
 math.cos(x)    | cos(x)
