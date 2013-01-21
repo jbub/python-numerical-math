@@ -9,7 +9,7 @@
 * Jacobi method **jacobi.py**
 * Gauss Seidel method **gaussseidel.py**
 * Lagrange polynomial **lagrange.py**
-* Least squares method
+* Least squares method **leastsquares.py**
 * Numerical integration - Rectangular method **rectangle.py**
 * Numerical integration - Trapezoidal method **trapezoid.py**
 
