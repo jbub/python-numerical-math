@@ -21,7 +21,7 @@ def bisection(a, b, fn, e):
         # stred intervalu <a,b>
         x = 0.5 * (a + b)
 
-        logger.info('a = {}, b = {}, x = {}'.format(a, b, x))
+        logger.info('a = {0}, b = {1}, x = {2}'.format(a, b, x))
 
         # skonci ak je stred intervalu
         # korenom funkcie inak uprav interval
@@ -45,4 +45,4 @@ if __name__ == '__main__':
 
     r = bisection(a, b, fn, e)
 
-    print('Koren je: {}'.format(r))
+    print('Koren je: {0}'.format(r))

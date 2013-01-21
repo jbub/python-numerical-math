@@ -8,13 +8,6 @@ from math import sqrt
 from numa import logger, matrix_input, float_input
 
 
-def norm_error(x1, x):
-    """
-    Vypocita rozdiel prvej a druhej aproximacie (norma).
-    """
-    return row_norm(x1) - row_norm(x)
-
-
 def row_norm(m):
     """
     Vypocita riadkovu normu matice m.
@@ -44,6 +37,13 @@ def euclid_norm(m):
         for c in range(m.cols):
             sum += m[r, c] ** 2
     return sqrt(sum)
+
+
+def norm_error(x1, x, norm=row_norm):
+    """
+    Vypocita rozdiel prvej a druhej aproximacie (norma).
+    """
+    return norm(x1) - norm(x)
 
 
 def jacobi(a, b, x, e):
@@ -80,7 +80,7 @@ def jacobi(a, b, x, e):
         # vypocet rozdielu prvej a druhej aproximacie (norma)
         error = norm_error(x1, x)
 
-        logger.info('x1 = {}\nx = {}\nerror = {}\n'.format(
+        logger.info('x1 = {0}\nx = {1}\nerror = {2}\n'.format(
             x1.tolist(), x.tolist(), error))
 
         # skonci pri dosiahnuti presnosti
@@ -98,4 +98,4 @@ if __name__ == '__main__':
 
     r = jacobi(a, b, x, e)
 
-    print('Vysledny vektor:\n{}'.format(r))
+    print('Vysledny vektor:\n{0}'.format(r))

@@ -22,7 +22,7 @@ def babylon(n, x0, e):
         x = 0.5 * (x0 + n / x0)
 
         logger.info(
-            'x = {}, x0 = {}, Abs(x - x0) = {}'.format(x, x0, Abs(x - x0)))
+            'x = {0}, x0 = {1}, Abs(x - x0) = {2}'.format(x, x0, Abs(x - x0)))
 
         # skonci ak je dosiahnuta pozadovana presnost
         if Abs(x - x0) < e:
@@ -38,4 +38,4 @@ if __name__ == '__main__':
 
     r = babylon(n, x0, e)
 
-    print('Odmocnina je: {}'.format(r))
+    print('Odmocnina je: {0}'.format(r))

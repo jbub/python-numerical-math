@@ -20,7 +20,7 @@ def newton(a, b, fn, e):
     fn_d1 = diff(fn)
     fn_d2 = diff(fn_d1)
 
-    logger.info('fn_d1 = {}, fn_d2 = {}'.format(fn_d1, fn_d2))
+    logger.info('fn_d1 = {0}, fn_d2 = {1}'.format(fn_d1, fn_d2))
 
     f = lambda x: eval_expr(fn, x=x)
     fd = lambda x: eval_expr(fn_d1, x=x)
@@ -41,7 +41,7 @@ def newton(a, b, fn, e):
         x1 = x - f(x) / fd(x)
 
         logger.info(
-            'x = {}, x1 = {}, Abs(x1 - x) = {}'.format(x, x1, Abs(x1 - x)))
+            'x = {0}, x1 = {1}, Abs(x1 - x) = {2}'.format(x, x1, Abs(x1 - x)))
 
         # skonci pri dosiahnuti presnosti
         if Abs(x1 - x) <= e:
@@ -58,4 +58,4 @@ if __name__ == '__main__':
 
     r = newton(a, b, fn, e)
 
-    print('Koren je: {}'.format(r))
+    print('Koren je: {0}'.format(r))

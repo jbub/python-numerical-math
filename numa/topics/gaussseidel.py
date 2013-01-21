@@ -42,7 +42,7 @@ def gaussseidel(a, b, x, e):
         # vypocet rozdielu prvej a druhej aproximacie (norma)
         error = norm_error(x1, x)
 
-        logger.info('x1 = {}\nx = {}\nerror = {}\n'.format(
+        logger.info('x1 = {0}\nx = {1}\nerror = {2}\n'.format(
             x1.tolist(), x.tolist(), error))
 
         # skonci pri dosiahnuti presnosti
@@ -60,4 +60,4 @@ if __name__ == '__main__':
 
     r = gaussseidel(a, b, x, e)
 
-    print('Vysledny vektor:\n{}'.format(r))
+    print('Vysledny vektor:\n{0}'.format(r))

@@ -24,7 +24,7 @@ def regulafalsi(a, b, fn, e):
         # vypocet novej aproximacie
         x1 = a - ((b - a) / (f(b) - f(a))) * f(a)
 
-        logger.info('a = {}, b = {}, x = {}, x1 = {}'.format(a, b, x, x1))
+        logger.info('a = {0}, b = {1}, x = {2}, x1 = {3}'.format(a, b, x, x1))
 
         # skonci ak je nova aproximacia korenom funkcie
         if f(x1) == 0:
@@ -49,4 +49,4 @@ if __name__ == '__main__':
 
     r = regulafalsi(a, b, fn, e)
 
-    print('Koren je: {}'.format(r))
+    print('Koren je: {0}'.format(r))
