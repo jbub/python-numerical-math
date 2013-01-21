@@ -14,7 +14,8 @@ __license__ = 'BSD'
 __copyright__ = 'Copyright 2013 Juraj Bubniak'
 
 
-from .utils import int_input, float_input, expr_input, matrix_input, eval_expr
+from .utils import int_input, float_input, expr_input, matrix_input, \
+    eval_expr, list_input
 
 import sys
 import logging

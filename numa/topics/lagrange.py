@@ -1,24 +1,53 @@
+# -*- coding: utf-8 -*-
 
-from sympy import Symbol
+"""
+Lagrangeov polynom.
+"""
+
+from numa import list_input
+from sympy import sympify
 
 
-def lagrange_base(i):
+def next_symbol_index(n, exclude, j):
     """
-    Vytvori i-tu lagrangeovu bazu polynomu.
+    Vrati index symbolu pre pouzitie v aktualnej iteracii.
     """
-    x = Symbol('x')
-    x_i = Symbol('x{0}'.format(i))
-    x_next = Symbol('x{0}'.format(i + 1))
-    x_prev = Symbol('x{0}'.format(max(0, i - 1)))
-
-    print x, x_i, x_next, x_prev
-
-    numer = (x - x_prev) * (x - x_next)
-    denom = (x_i - x_prev) * (x_i - x_next)
+    choices = [x for x in range(n + 1) if x != exclude]
+    return choices[j]
 
 
-    return numer / denom
+def lagrange_base(n, i):
+    """
+    Vytvori Lagrangeovu bazu n-teho stupna.
+    """
+
+    up = '(x - x{0})'
+    bt = '(x{0} - x{1})'
+    enume, denom = [], []
+
+    # nalpn postupne listy citatelov a menovatelov
+    for j in range(n):
+
+        k = next_symbol_index(n, i, j)
+
+        enume.append(up.format(k))
+        denom.append(bt.format(i, k))
+
+    # spoji listy nasobenim do stringu a prevedie do vyrazu
+    d = sympify(' * '.join(enume))
+    e = sympify(' * '.join(denom))
+
+    return d / e
+
+
+def lagrange(x, fx):
+    pass
 
 
 if __name__ == '__main__':
-    print lagrange_base(0)
+    x = list_input('Zadajte cislo a')
+    fx = list_input('Zadajte cislo b')
+
+    r = lagrange(x, fx)
+
+    print('Polynom je: {0}'.format(r))

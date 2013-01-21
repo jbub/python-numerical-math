@@ -43,11 +43,22 @@ def expr_input(prompt):
             return input
 
 
+def list_input(prompt):
+    while True:
+        try:
+            input = eval(user_input(prompt, default=None))
+            if not isinstance(input, list):
+                raise ValueError
+        except StandardError:
+            pass
+        else:
+            return input
+
+
 def matrix_input(prompt):
     while True:
         try:
-            input = user_input(prompt, default=None)
-            input = eval(input)
+            input = eval(user_input(prompt, default=None))
             if isinstance(input, list):
                 input = Matrix(input)
             else:
