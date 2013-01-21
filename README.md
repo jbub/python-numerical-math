@@ -8,7 +8,7 @@
 * Newton method **newton.py**
 * Jacobi method **jacobi.py**
 * Gauss Seidel method **gaussseidel.py**
-* Lagrange polynomial
+* Lagrange polynomial **lagrange.py**
 * Least squares method
 * Numerical integration - Rectangular method **rectangle.py**
 * Numerical integration - Trapezoidal method **trapezoid.py**
