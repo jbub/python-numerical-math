@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Lagrangeov polynom.
+Lagrangeov interpolacny polynom.
 """
 
 from numa import list_input
@@ -40,14 +40,48 @@ def lagrange_base(n, i):
     return d / e
 
 
+def evaluate_base(base, n, x):
+    """
+    Dosadi hodnoty x do bazy.
+    """
+    values = {}
+
+    for i, value in enumerate(x):
+        values['x{0}'.format(i)] = value
+
+    return base.subs(values).evalf()
+
+
 def lagrange(x, fx):
-    pass
+    """
+    Vypocita Lagrangeov interpolacny polynom.
+    """
+
+    # pocet x
+    n = len(x)
+
+    # casti polynomu
+    poly = []
+
+    assert n == len(fx), 'Dlzka listov x a fx musi byt rovnaka'
+
+    for i in range(n):
+        # zostroji bazu
+        base = lagrange_base(n - 1, i)
+
+        # dosadi do bazy hodnoty x
+        base_eval = evaluate_base(base, n, x)
+
+        # prida cast polynomu
+        poly.append(str(fx[i]) + ' * ' + str(base_eval))
+
+    return ' + '.join(poly)
 
 
 if __name__ == '__main__':
-    x = list_input('Zadajte cislo a')
-    fx = list_input('Zadajte cislo b')
+    x = list_input('Zadajte zoznam hodnot x')
+    fx = list_input('Zadajte zoznam funkcnych hodnot fx')
 
     r = lagrange(x, fx)
 
-    print('Polynom je: {0}'.format(r))
+    print('Polynom je:\n{0}'.format(r))
