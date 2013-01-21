@@ -15,10 +15,10 @@ def gaussseidel(a, b, x, e):
     strany a matica x reprezentuje vektor aproximacie.
     """
 
-    assert a.rows == b.rows == x.rows,\
+    assert a.rows == b.rows == x.rows, \
     'Pocet riadkov matic "a", "b" a "x" musi byt rovnaky'
 
-    assert b.cols == x.cols == 1,\
+    assert b.cols == x.cols == 1, \
     'Pocet stlpcov matic "b" a "x" musi byt 1'
 
     assert e > 0, 'Presnost e musi byt vacsia ako nula'
