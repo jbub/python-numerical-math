@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 
 """
-Numericka Integracia - Obdlznikova metoda.
+Numericka Integracia - Lichobeznikova metoda.
 """
 
 from sympy import Abs
 from numa import logger, float_input, int_input, expr_input, eval_expr
 
 
-def rectangle(a, b, m, fn, e):
+def trapezoid(a, b, m, fn, e):
     """
-    Na intervale <a,b>, ktory sa rozdeli na m obdlznikov, vypocita
+    Na intervale <a,b>, ktory sa rozdeli na m lichobeznikov, vypocita
     aproximaciu urciteho integralu funkcie fn.
     """
 
@@ -19,31 +19,35 @@ def rectangle(a, b, m, fn, e):
 
     f = lambda x: eval_expr(fn, x=x)
     I = []
-    J = 0
+    J1 = 0
+    J2 = 0
     k = 0
 
     # rozdelenie intervalu na m rovnako dlhych dielov
     h = (b - a) / m
 
     for i in range(m):
-        J += f(((a + (i * h)) + (a + h * (i + 1))) / 2)
+        J1 += f(a + (h * i))
+        J2 += f(a + h * (i + 1))
 
-    I.append(h * J)
+    I.append((h / 2) * (J1 + J2))
 
     while True:
-        J = 0
+        J1 = 0
+        J2 = 0
         m *= 2
 
         # skratenie intervalu na polovicu
         h /= 2
 
         for i in range(m):
-            J += f(((a + (h * i)) + (a + h * (i + 1))) / 2)
+            J1 += f(a + (h * i))
+            J2 += f(a + h * (i + 1))
 
-        I.append(h * J)
+        I.append((h / 2) * (J1 + J2))
 
         logger.info('m = {0}, h = {1}, Abs(I[k] - I[k + 1]) = {2}'.format(
-            m, h, Abs(I[k] - I[k + 1])))
+            m, h, I[k] - I[k + 1]))
 
         # skonci pri dosiahnuti presnosti
         if Abs(I[k] - I[k + 1]) <= e:
@@ -59,6 +63,6 @@ if __name__ == '__main__':
     fn = expr_input('Zadajte funkciu fn')
     e = float_input('Zadajte presnost e', default=0.01)
 
-    r = rectangle(a, b, m, fn, e)
+    r = trapezoid(a, b, m, fn, e)
 
     print('Aproximacia je: {0}'.format(r))

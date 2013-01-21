@@ -11,7 +11,7 @@
 * Lagrange polynomial
 * Least squares method
 * Numerical integration - Rectangular method **rectangle.py**
-* Numerical integration - Trapezoidal method
+* Numerical integration - Trapezoidal method **trapezoid.py**
 
 ## How to
 
