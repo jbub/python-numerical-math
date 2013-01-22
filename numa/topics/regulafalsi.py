@@ -21,6 +21,10 @@ def regulafalsi(a, b, fn, e):
     x = a
 
     while True:
+        # v intervale musi existovat realny koren
+        if f(a) * f(b) >= 0:
+            raise ValueError('v intervale neexistuje realny koren')
+
         # vypocet novej aproximacie
         x1 = a - ((b - a) / (f(b) - f(a))) * f(a)
 
