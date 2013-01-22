@@ -30,7 +30,8 @@ def row_norm(m):
     """
     parts = []
     for row in range(m.rows):
-        parts.append(sum(filter(abs, m.row(row))))
+        abs_p = map(abs, m.row(row))
+        parts.append(sum(abs_p))
     return max(parts)
 
 
@@ -40,7 +41,8 @@ def col_norm(m):
     """
     parts = []
     for col in range(m.cols):
-        parts.append(sum(filter(abs, m.col(col))))
+        abs_p = map(abs, m.col(col))
+        parts.append(sum(abs_p))
     return max(parts)
 
 

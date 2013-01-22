@@ -4,9 +4,9 @@
 Metoda najmensich stvorcov.
 """
 
+from sympy import Matrix
 from numa import logger, list_input
 from numa.topics.jacobi import jacobi
-from sympy import Matrix
 
 
 def leastsquares(x, fx):
@@ -36,7 +36,7 @@ def leastsquares(x, fx):
     sum_x_fx = sum(xi * fxi for xi, fxi in zip(x, fx))
 
     logger.info(
-        'sum_1 = {0}, sum_x = {1}, sum_x2 = {2}, sum_fx = {3}, sum_x_fx = {4}'
+        'sum_1 = {0}, sum_x = {1}, sum_x2 = {2}, sum_fx = {3}, sum_x_fx = {4}\n'
         .format(sum_1, sum_x, sum_x2, sum_fx, sum_x_fx))
 
     # lava strana sustavy
