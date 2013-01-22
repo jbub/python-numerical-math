@@ -36,7 +36,7 @@ def leastsquares(x, fx):
     sum_x_fx = sum(xi * fxi for xi, fxi in zip(x, fx))
 
     logger.info(
-        'sum_1 = {}, sum_x = {}, sum_x2 = {}, sum_fx = {}, sum_x_fx = {}'
+        'sum_1 = {0}, sum_x = {1}, sum_x2 = {2}, sum_fx = {3}, sum_x_fx = {4}'
         .format(sum_1, sum_x, sum_x2, sum_fx, sum_x_fx))
 
     # lava strana sustavy
@@ -54,7 +54,7 @@ def leastsquares(x, fx):
     # jacobiho metodou vypocita sustavu
     c1, c2 = jacobi(a, b, x, e=0.01)
 
-    return '{0} - {1}x'.format(c1, c2)
+    return '{0} + {1}x'.format(c1, c2)
 
 
 if __name__ == '__main__':

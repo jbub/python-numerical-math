@@ -4,6 +4,7 @@
 Gauss Seidelova methoda.
 """
 
+from sympy.matrices.matrices import Matrix
 from numa import logger, matrix_input, list_input, float_input
 from numa.topics.jacobi import norm_error, list_as_float, check_norms
 
@@ -13,10 +14,28 @@ def gaussseidel(a, b, x, e):
     S vyuzitim Gauss Seidelovej metody vypocita sustavu linearnych rovnic.
     Matica a reprezentuje lavu stranu sustavy, matica b vektor pravej
     strany a matica x reprezentuje vektor aproximacie.
+
+    Priklad:
+
+    Nevyhovujuca:
+    a = Matrix((
+        [1,1,-3],
+        [2,5,1],
+        [4,-1,2],
+    ))
+    b = [-4,5,-12]
+
+    Vyhovujuca:
+    a = Matrix((
+        [11,2,1],
+        [1,10,2],
+        [2,3,-8],
+    ))
+    b = [15,16,1]
     """
 
-    assert a.rows == b.rows == len(b) == len(x), \
-    'Rozmery matice "a" a pocet prvkov vo vektoroch "b" a "x" ' \
+    assert a.rows == len(b) == len(x), \
+    'Rozmery matice "a" a pocet prvkov vo vektoroch "b" a "x" '\
     'musi byt rovnaky'
 
     assert e > 0, 'Presnost e musi byt vacsia ako nula'
@@ -31,10 +50,10 @@ def gaussseidel(a, b, x, e):
             sum_a = sum_b = 0
 
             for j in range(i):
-                sum_a = a[i, j] * x1[j]
+                sum_a += a[i, j] * x1[j]
 
             for j in range(i + 1, a.rows):
-                sum_b = a[i, j] * x[j]
+                sum_b += a[i, j] * x[j]
 
             # vypocet dalsej aproximacie
             x1[i] = (1 / a[i, i]) * (b[i] - sum_a - sum_b)
@@ -43,11 +62,11 @@ def gaussseidel(a, b, x, e):
         error = norm_error(x1, x)
 
         logger.info('x1 = {0}\nx = {1}\nerror = {2}\n'.format(
-            list_as_float(x1), list_as_float(x), error))
+            list_as_float(x1), list_as_float(x), float(error)))
 
         # skonci pri dosiahnuti presnosti
         if error <= e:
-            return x1
+            return list_as_float(x1)
 
         x = list(x1)
 
