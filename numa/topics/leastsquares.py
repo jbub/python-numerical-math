@@ -46,16 +46,10 @@ def leastsquares(x, fx):
     ))
 
     # prava strana sustavy
-    b = Matrix((
-        [sum_fx],
-        [sum_x_fx],
-    ))
+    b = [sum_fx, sum_x_fx]
 
     # aproximacia riesenia pre jacobiho metodu
-    x = Matrix((
-        [0],
-        [0],
-    ))
+    x = [0, 0]
 
     # jacobiho metodou vypocita sustavu
     c1, c2 = jacobi(a, b, x, e=0.01)

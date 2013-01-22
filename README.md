@@ -44,13 +44,6 @@ Matrix((
     [2,3,-8]
 ))
 
-# input vectors as one col matrices
-[[15],[16],[1]]
-
-# it will generate this Matrix instance
-Matrix((
-    [15],
-    [16],
-    [1],
-))
+# input vectors as lists
+[15, 16, 1]
 ```
