@@ -144,20 +144,10 @@ def jacobi(a, b, x, e):
 
 
 if __name__ == '__main__':
-    """
     a = matrix_input('Zadajte maticu a')
     b = list_input('Zadajte vektor pravej strany b')
     x = list_input('Zadajte vektor aproximacie x')
     e = float_input('Zadajte presnost e', default=0.01)
-    """
-    a = Matrix((
-        [11,2,1],
-        [1,10,2],
-        [2,3,-8],
-        ))
-    b = [15,16,1]
-    x = [0,0,0]
-    e = 0.01
 
     r = jacobi(a, b, x, e)
 
