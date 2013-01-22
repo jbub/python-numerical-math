@@ -35,11 +35,10 @@ def gaussseidel(a, b, x, e):
     """
 
     assert a.rows == len(b) == len(x), \
-    'Rozmery matice "a" a pocet prvkov vo vektoroch "b" a "x" '\
+    'Rozmery matice "a" a pocet prvkov vo vektoroch "b" a "x" ' \
     'musi byt rovnaky'
 
     assert e > 0, 'Presnost e musi byt vacsia ako nula'
-
     assert check_norms(a), 'Matica nesplna konvergencne kriterium'
 
     # novy vektor aproximacie
