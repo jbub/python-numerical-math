@@ -14,7 +14,6 @@ def iterative_form(m):
     Prevedie maticu na iteracny tvar.
     """
     n = Matrix(m.rows, m.rows, lambda i, j: 0)
-
     for i in range(m.rows):
         for j in range(m.rows):
             n[i, j] = -1 * m[i, j] / m[i, i]
@@ -108,12 +107,11 @@ def jacobi(a, b, x, e):
     b = [15,16,1]
     """
 
-    assert a.rows == len(b) == len(x),\
-    'Rozmery matice "a" a pocet prvkov vo vektoroch "b" a "x" '\
+    assert a.rows == len(b) == len(x), \
+    'Rozmery matice "a" a pocet prvkov vo vektoroch "b" a "x" ' \
     'musi byt rovnaky'
 
     assert e > 0, 'Presnost e musi byt vacsia ako nula'
-
     assert check_norms(a), 'Matica nesplna konvergencne kriterium'
 
     # novy vektor aproximacie
